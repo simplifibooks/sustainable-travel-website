@@ -1,16 +1,16 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import Link from 'next/link'
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Families", href: "/families" },
-  { label: "Seniors", href: "/seniors" },
-  { label: "Accessible", href: "/accessible" },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
+  { label: 'Home', href: '/' },
+  { label: 'Families', href: '/families' },
+  { label: 'Seniors', href: '/seniors' },
+  { label: 'Accessible', href: '/accessible' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'About Us', href: '/about' },
 ]
 
 export function Navigation() {
@@ -21,10 +21,8 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-2xl font-bold text-emerald-600">
-            EcoTravel
+            Green Travel for All
           </Link>
-
-          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <Link
@@ -36,17 +34,10 @@ export function Navigation() {
               </Link>
             ))}
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4">
             {navItems.map((item) => (

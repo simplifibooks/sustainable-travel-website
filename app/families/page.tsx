@@ -1,21 +1,33 @@
-import { FamilyHero } from "@/components/family-hero"
-import { FamilyDestinations } from "@/components/family-destinations"
-import { FamilyActivities } from "@/components/family-activities"
-import { AdPlacement } from "@/components/ad-placement"
+'use client'
 
-export const metadata = {
-  title: "Sustainable Family Travel | Eco-Friendly Vacations with Children",
-  description: "Plan memorable, eco-friendly family vacations with our comprehensive guide to sustainable travel with children. Discover family-friendly destinations, activities, and accommodations.",
-}
+import Link from 'next/link'
 
 export default function FamiliesPage() {
   return (
-    <div className="space-y-12">
-      <FamilyHero />
-      <AdPlacement position="banner" />
-      <FamilyDestinations />
-      <FamilyActivities />
-      <AdPlacement position="in-content" />
+    <div className="container mx-auto px-4 py-10 space-y-6">
+      <h1 className="text-3xl font-bold mb-4">Family-Friendly Eco Destinations</h1>
+      <p className="text-gray-700 dark:text-gray-300 mb-6">
+        Discover sustainable travel options perfect for the whole family. Explore safe, educational, and eco-conscious trips.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { name: 'Costa Rica', slug: 'costa-rica' },
+          { name: 'Yellowstone', slug: 'yellowstone' },
+          { name: 'Barcelona', slug: 'barcelona' },
+        ].map(({ name, slug }) => (
+          <Link
+            key={slug}
+            href={`/blog/${slug}`}
+            className="block bg-white dark:bg-gray-900 shadow rounded-lg p-4 hover:shadow-lg transition"
+          >
+            <h2 className="text-xl font-semibold text-emerald-600">{name}</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              A great destination for eco-conscious families.
+            </p>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }
