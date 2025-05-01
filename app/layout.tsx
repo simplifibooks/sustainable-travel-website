@@ -9,8 +9,15 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Sustainable Travel for All | Eco-Friendly Adventures",
-  description: "Discover sustainable travel experiences designed for families, seniors, and travelers with mobility needs. Expert guides to eco-friendly accommodations and responsible tourism.",
-  keywords: ["sustainable travel", "eco-friendly tourism", "accessible travel", "family travel", "senior travel"],
+  description:
+    "Discover sustainable travel experiences designed for families, seniors, and travelers with mobility needs. Expert guides to eco-friendly accommodations and responsible tourism.",
+  keywords: [
+    "sustainable travel",
+    "eco-friendly tourism",
+    "accessible travel",
+    "family travel",
+    "senior travel",
+  ],
 }
 
 export default function RootLayout({
@@ -53,8 +60,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen bg-background">
-            <Navigation />
+          <div className="relative min-h-screen bg-background">
+            <div className="z-50 relative">
+              <Navigation />
+            </div>
             <main className="container mx-auto px-4 py-6">
               {children}
             </main>
